@@ -10,6 +10,6 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/v1", require("./routes/routes"));
+app.use("/api", require("./routes/routes"));
 
 module.exports = app;

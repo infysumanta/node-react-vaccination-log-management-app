@@ -11,6 +11,7 @@ const connectDB = () => {
     })
     .then(() => {
       console.log("Database connection established");
+      require("./../seed").createAdmin();
     })
     .catch((err) => {
       console.log(err);

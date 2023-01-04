@@ -25,4 +25,4 @@ const userVaccineSchema = new Schema(
 
 const UserVaccine = mongoose.model("UserVaccine", userVaccineSchema);
 
-module.exports = User;
+module.exports = UserVaccine;

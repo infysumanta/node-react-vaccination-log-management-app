@@ -20,4 +20,4 @@ const userPlaceSchema = new Schema(
 
 const UserPlace = mongoose.model("UserPlace", userPlaceSchema);
 
-module.exports = User;
+module.exports = UserPlace;
