@@ -16,7 +16,7 @@ exports.create = async (req, res) => {
   }
 };
 
-exports.getAll = async (req, res) => {
+exports.getAll = async (_, res) => {
   try {
     const list = await Vaccine.find({}).sort("-createdAt");
     for (const vaccine of list) {

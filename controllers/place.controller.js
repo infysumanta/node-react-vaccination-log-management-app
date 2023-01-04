@@ -15,7 +15,7 @@ exports.create = async (req, res) => {
   }
 };
 
-exports.getAll = async (req, res) => {
+exports.getAll = async (_, res) => {
   try {
     const list = await Place.find({}).populate("creator").sort("-createdAt");
     for (const place of list) {
