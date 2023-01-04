@@ -1,0 +1,33 @@
+{
+  "name": "react-vaccination-log-management-app",
+  "version": "1.0.0",
+  "description": "Vaccination Log Management Application",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infysumanta/node-react-vaccination-log-management-app.git"
+  },
+  "keywords": [],
+  "author": "Sumanta Kabiraj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infysumanta/node-react-vaccination-log-management-app/issues"
+  },
+  "homepage": "https://github.com/infysumanta/node-react-vaccination-log-management-app#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
