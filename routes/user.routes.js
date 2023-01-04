@@ -12,7 +12,7 @@ router
 router
   .route("/:userId")
   .get(verifyAdminToken, user.getOne)
-  .put(verifyAdminToken, user.update);
-  .delete(verifyAdminToken, user.delete)
+  .put(verifyAdminToken, user.update)
+  .delete(verifyAdminToken, user.delete);
 
 module.exports = router;

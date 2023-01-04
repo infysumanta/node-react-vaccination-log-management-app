@@ -10,7 +10,7 @@ router
   .get(verifyAdminToken, vaccine.getAll);
 
 router
-  .route("/:placeId")
+  .route("/:vaccineId")
   .get(verifyAdminToken, vaccine.getOne)
   .put(verifyAdminToken, vaccine.update)
   .delete(verifyAdminToken, vaccine.delete);
