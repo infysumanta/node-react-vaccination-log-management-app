@@ -11,11 +11,11 @@ exports.createAdmin = async () => {
     if (admin !== null) return true;
 
     const salt = await bcrypt.genSalt(10);
-    const hasedPassword = await bcrypt.hash(password, salt);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
     const newAdmin = new Admin({
       username: username,
-      password: hasedPassword,
+      password: hashedPassword,
     });
     await newAdmin.save();
     console.log("=============================");
