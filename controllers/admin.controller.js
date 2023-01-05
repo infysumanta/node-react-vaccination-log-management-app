@@ -9,15 +9,41 @@ exports.helloAdmin = (req, res) => {
 
 exports.login = async (req, res) => {
   const { username, password } = req.body;
+
   try {
-    const admin = await Admin.findOne({ username: username });
-    if (admin && (await bcrypt.compare(admin.password, password))) {
-      const token = await jwt.sign({ id: admin.id }, config.JWT_TOKEN, {
-        expiresIn: "30d",
+    const admin = await Admin.findOne({ username: username }).select(
+      "+password"
+    );
+    if (!admin) {
+      return res.status(401).json({
+        errors: [
+          {
+            param: "username",
+            msg: "Invalid username or password",
+          },
+        ],
       });
-      res.status(200).json({ admin, token });
     }
-    return res.status(401).send("Wrong Username");
+
+    const checkPassword = await bcrypt.compare(admin.password, password);
+    if (checkPassword) {
+      return res.status(401).json({
+        errors: [
+          {
+            param: "username",
+            msg: "Invalid username or password",
+          },
+        ],
+      });
+    }
+
+    admin.password = undefined;
+
+    const token = jwt.sign({ id: admin._id }, config.JWT_TOKEN, {
+      expiresIn: "24h",
+    });
+
+    res.status(200).json({ admin, token });
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
